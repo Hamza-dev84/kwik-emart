@@ -13,7 +13,7 @@ const Location = sequelize.define("Location", {
         }
     },
 
-    location: {
+    area: {
         type: DataTypes.STRING,
         allowNull: true
     },

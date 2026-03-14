@@ -10,7 +10,8 @@ router.post("/signupStore",
     upload.fields([
         {name: "profile_photo", maxCount: 1},
         {name: "store_logo", maxCount: 1},
-        {name: "banner_image", maxCount: 1}
+        {name: "banner_image", maxCount: 1},
+        {name: "business_document", maxCount: 1}
     ]),
     createStore
 );

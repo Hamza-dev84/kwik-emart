@@ -1,8 +1,8 @@
 const Store = require("./store");
 const User = require("./user");
 const Location = require("./location");
-const Assets = require("./Assets");
-const Pricing = require("./Pricing");
+const Assets = require("./assets");
+const Pricing = require("./pricing");
 
 
 

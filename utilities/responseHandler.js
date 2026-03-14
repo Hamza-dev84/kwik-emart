@@ -1,13 +1,13 @@
 
-const successResponse = ({res, data, message="Success"}) => {
-    return res.status(201).json({
+const successResponse = ({res, data, message="Success", status=201}) => {
+    return res.status(status).json({
         success: true,
         message: message,
         data: data
     });
 }
 
-const errorResponse = ({res, data, message="Fail", status=500}) => {
+const errorResponse = ({res, message="Fail", status=500}) => {
     res.status(status).json({
         success: false,
         message: message
