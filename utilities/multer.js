@@ -1,3 +1,4 @@
+
 const multer = require("multer");
 const path = require("path");
 
@@ -11,19 +12,28 @@ const storage = multer.diskStorage({
     }
 });
 
+const docFields = [
+    "business_document",
+    "id_front", "id_back",
+    "license_front", "license_back",
+    "insurance_certificate",
+    "bank_statement_upload",
+    "right_to_work_document"
+];
+
 const upload = multer({
     storage,
     fileFilter: (req, file, cb) => {
         const ext = path.extname(file.originalname).toLowerCase();
 
-        if (file.fieldname === "business_document") {
-            if (ext !== ".png" && ext !== ".jpg" && ext !== ".jpeg" && ext !== ".pdf") {
-                return cb(new Error("Only images or PDF allowed for business document"));
+        if (docFields.includes(file.fieldname)) {
+            if (![".png", ".jpg", ".jpeg", ".pdf"].includes(ext)) {
+                return cb(new Error("Only images or PDF allowed for documents"));
             }
             return cb(null, true);
         }
 
-        if (ext !== ".png" && ext !== ".jpg" && ext !== ".jpeg") {
+        if (![".png", ".jpg", ".jpeg"].includes(ext)) {
             return cb(new Error("Only images (jpg, png, jpeg) are allowed"));
         }
         cb(null, true);
