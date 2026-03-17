@@ -81,7 +81,7 @@ const DriverDocument = sequelize.define("DriverDocument", {
 
     insurance_certificate: { 
         type: DataTypes.STRING, 
-        allowNull: false 
+        allowNull: true 
     },
 
     bank_name: { 

@@ -6,6 +6,7 @@ const cors = require("cors");
 const errorHandler = require("./middleware/errorHandlerMiddleware");
 const { connectDB, sequelize } = require("./config/db");
 const storeRoutes = require("./routes/storeRoutes");
+const driverRoutes = require("./routes/driverRoutes");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/uploads", express.static("uploads"));
 app.use("/", storeRoutes);
+app.use("/", driverRoutes);
 app.use(errorHandler);
 
 
